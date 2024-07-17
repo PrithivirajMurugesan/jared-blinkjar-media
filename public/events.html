@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events PDF</title>
+    <link rel="stylesheet" href="./events.css">
+    <link rel="stylesheet" href="./style.css">
+
+    <!-- Include html2canvas library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <!-- Include jsPDF library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+
+</head>
+<body>
+    <div id="events_pdf">
+    <div class="event_top_banner">
+        <div class="left_details">
+            <div class="first_details">
+                <b><p>Group Fitness Schedule</p></b>
+                <span>June 2024</span>
+            </div>
+            <div class="second_details">
+                <h3>DirectorMatt Falcon</h3>
+                <h3><a href="mailto:mfalcon@ymcabr.org" style="text-decoration: none; color: #000; border-left: #000 solid 2px; padding-left: 12px;">mfalcon@ymcabr.org</a></h3>
+            </div>
+        </div>
+        <button onclick="downloadPDF()" class="dowload_pdf">Download as Pdf</button>
+        <div class="right_details">
+            <div class="third_details">
+                <h3>A. C. LEWIS YMCA (p) 225-767-9622</h3>
+            </div>
+            <div class="fourth_details">
+                <p>350 S. Foster Drive, Baton Rouge, LA70806</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- html -->
+    <div class="loading">
+        <div class="loader">
+            <span class="loader__element"></span>
+            <span class="loader__element"></span>
+            <span class="loader__element"></span>
+          </div>
+          <p class="load-para">Beaming Down Classes & Times</p>
+        </div>
+    
+    
+        <div class="calender_widget">
+            <div class="widget_filter">
+                <div>
+            <div id="infoMessage" style="display: none; font-size: 14px;">To Get Started, Select Your location Below</div>
+               <div class="filter_one">
+                <select id="branchDropdown1">
+                </select>
+               </div>
+            </div>
+               <div class="filter_two">
+                <select id="studioDropdown">
+    
+                </select>
+               </div>
+               <div class="filter_three">
+                <select id="titleDropdown">
+                </select>
+               </div>
+               <div class="view_all">
+                <a href="#">View Class Descriptions</a>
+               </div>
+            </div>
+            <div class="widget_header">
+                <img class="left_arrow" id="previous_week" src="./assets/icons8-left-arrow-64.png" alt="left_arrow">
+                <div class="date_header">
+                    <p class="header_title" id="selected-date">Week of <span id="start-date">Jun 30, 2024</span></p>
+                </div>
+                <button class="down_btn" id="date-picker-button">
+                    <img class="down_arrow" src="./assets/icons8-down-arrow-50.png" alt="down_arrow">
+                    <input type="date" id="date-picker" style="display: none;">
+                </button>
+                <img class="right_arrow" id="next_week" src="./assets/arrow-right.png" alt="right_arrow">
+                <div class="print_btn">
+                <button class="print" id="print_doc">Print</button>
+                <div class="custom-model-main" id="popUp">
+                    <div class="custom-model-inner">        
+                    <div class="close-btn">×</div>
+                        <div class="custom-model-wrap">
+                            <div class="pop-up-content-wrap">
+                                Print Schedule
+                            </div>
+                        </div>
+                        <div class="info_bottom">
+                        <div class="motion_vibe"><img src="//motionvibe.com/images/label_popup_motionvibe.png"></div> 
+                        <div id="dropdown_values">
+                        <select id="popupStudio"></select>
+                        <select id="popupClasses"></select>
+                        </div> 
+                        <div class="buttons">
+                            <button class="download_button" id="downloadPdf">Download PDF</button>
+                            <button class="cancel_button" id="cancelButton">Cancel</button>
+                        </div>
+                    </div>
+                    </div>  
+                    <div class="bg-overlay"></div>
+                </div>
+                </div>
+            </div>
+            <hr class="line" id="line_show">
+            <div class="info_banner" id="banner_show">
+                <p>Check out our new afternoon Yoga class on Tuesdays and Thursdays at 4:30PM!</p>
+            </div>
+            <table id="calendar">
+                <thead>
+                </thead>
+                <tbody></tbody>
+              </table>
+        </div>
+    
+    
+    
+
+
+
+
+    </div>
+
+
+      <script src="./events.js"></script>
+</body>
+</html>

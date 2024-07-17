@@ -1,0 +1,103 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#events_pdf {
+    margin: 30px 50px;
+}
+.event_top_banner {
+    padding: 12px 40px;
+    background-color: rgb(209, 206, 206);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.left_details,.right_details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.first_details,.second_details,.third_details,.fourth_details {
+    display: flex;
+    gap: 12px;
+}
+
+
+
+th{
+    background-color: #666666;
+    border: #000 solid 2px;
+    vertical-align: middle !important;
+    color: #fff !important;
+}
+td{
+    /* width: 70px !important; */
+    border: #000 solid 2px;
+    padding: 0 !important;
+    vertical-align: middle !important;
+}
+.event{
+    height: auto !important;
+    background-color: transparent !important;
+    border-bottom: none !important;
+}
+.event:hover {
+    background-color: transparent !important;
+}
+.instruct{
+    font-size: 12px;
+}
+td:first-child {
+    text-align: center;
+    background-color: #666666;
+    color: #fff;
+}
+.calender_widget {
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+    width: auto !important;
+}
+.widget_filter, .widget_header {
+    display: none !important;
+}
+.date_day {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+.dayIn {
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 600;
+}
+.dateIn {
+    font-size: 18px;
+    font-weight: 300;
+}
+.info_banner {
+    display: none !important;
+}
+.weekend-column {
+    background-color: #666666;
+    color: #fff;
+}
+.dowload_pdf {
+    border:none;
+    outline: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 480px){
+.event_top_banner {
+    width: 910px;
+    /* gap: 30px; */
+}
+#events_pdf {
+    margin: 0;
+}
+
+}

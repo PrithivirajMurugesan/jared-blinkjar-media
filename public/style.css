@@ -1,0 +1,551 @@
+@font-face {
+    font-family: 'Proxima_nova';
+    src: url('./assets/fonts/ProximaNovaA-Regular.ttf');
+    font-weight: normal;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Proxima_nova';
+}
+body{
+    background-color: #f7f7f7;
+}
+
+.calender_widget{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 100px;
+    margin-left: 300px;
+    width: 820px;
+}
+
+.widget_filter {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    background-color: #F4F4F4;
+    padding:7px 10px;
+    margin-top: 12px;
+}
+#branchDropdown, #studioDropdown, #titleDropdown {
+    font-size: 16px;
+    background-color: rgba(102, 102, 102, .15);
+    border: 2px solid #fff;
+    width: 100%;
+    margin: 3px 0;
+    height: 40px;
+    padding: 0 10px;
+    cursor: pointer;
+}
+#branchDropdown :focus-visible {
+  border: #000 solid 1px;
+}
+.view_all a{
+    color: #000;
+    font-size: 13px;
+    font-weight: 300;
+    background-color: transparent;
+}
+
+.widget_header{
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 8px;
+    margin-top: 12px;
+}
+.left_arrow, .right_arrow{
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+.down_btn {
+    width: 30px;
+    height: 22px;
+    border: none;
+    outline: none;
+    background-color: gray;
+    border-radius: 7px;
+    cursor: pointer;
+    padding-top: 3px;
+}
+.down_arrow {
+    width: 16px;
+    height: 16px;
+    padding-top: 2px;
+    background-color: transparent;
+}
+.header_title {
+    color: black;
+    font-size: 16px;
+    font-weight: 500;
+}
+.print_btn {
+    padding-left: 60px;
+}
+.print {
+    width: 100px;
+    background-color: #29ABE2;
+    color: white;
+    padding: 4px 10px;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: uppercase;
+    border: #29ABE2 solid 1px;
+    cursor: pointer;
+}
+.print:hover {
+    color: #29ABE2;
+    background-color: #fff;
+}
+.line {
+    margin-right: 50px;
+    margin-left: 50px;
+}
+.info_banner {
+    background-color: #31AAD4;
+    padding: 6px;
+    margin-top: 2px;
+}
+.info_banner p{
+    background-color: transparent;
+    font-size: 15px;
+    font-weight: 400;
+    color: #fff;
+    text-align: center;
+}
+
+/* events displaying */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  th, td {
+    /* border: 1px solid #ccc; */
+    padding: 10px;
+    vertical-align: top;
+    /* min-width: 115px !important; */
+    text-align: center;
+  }
+  .event {
+    background-color: #F4F4F4;
+    padding: 5px 5px 5px 5px;
+    width: 100px;
+    border-bottom: solid 1px #CACACA;
+    margin-bottom: 12px;
+    cursor: pointer;
+    height: 134px;
+  }
+  .event:hover {
+    background-color: #c8e8ff;
+  }
+  
+  .time {
+    font-weight: bold;
+    color:#000;
+     font-size:14px;
+      padding-bottom: 3px;
+  }
+  .instructor_name { 
+   color:#000;
+   padding-top: 3px;
+   font-size:11px;
+  }
+  .event img {
+    display: block;
+    margin: 0 auto;
+    width: 91px;
+    height: 45px;
+  }
+
+  .date-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 10px;
+  }
+  .date-container .date {
+    font-size: 15px;
+    font-weight: bold;
+  }
+  .date-container .day {
+    font-size: 15px;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  /* Add your date picker styles here */
+
+#date-picker {
+    position: absolute;
+}
+.today {
+    color: #29ABE2;
+}
+
+
+/* loader */
+
+.loading {
+    position: relative;
+}
+:root {
+    --main-color: #fff;
+    --point-color: #29ABE2;
+    --size: 5px;
+  }
+  .load-para {
+    position: fixed;
+    top: 54%;
+    left: 42%;
+  }
+  
+  .loader {
+      background-color: var(--main-color);
+      overflow: hidden;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    align-content: center; 
+    justify-content: center;  
+  }
+  
+  .loader__element {
+    border-radius: 100%;
+    border: var(--size) solid var(--point-color);
+    margin: calc(var(--size)*2);
+  }
+  
+  .loader__element:nth-child(1) {
+    animation: preloader .6s ease-in-out alternate infinite;
+  }
+  .loader__element:nth-child(2) {
+    animation: preloader .6s ease-in-out alternate .2s infinite;
+  }
+  
+  .loader__element:nth-child(3) {
+    animation: preloader .6s ease-in-out alternate .4s infinite;
+  }
+  
+  @keyframes preloader {
+    100% { transform: scale(2); }
+  }
+
+  /* pop up starts */
+
+  #dropdown_values{
+    display: flex;
+    flex-direction: column;
+    padding-top: 12px;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  #popupStudio, #popupClasses {
+    font-size: 16px;
+    background-color: rgba(102, 102, 102, .15);
+    border: 2px solid #fff;
+    width: 100%;
+    margin: 3px 0;
+    height: 40px;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+
+
+  .custom-model-main {
+    display: none;
+    text-align: center;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0; /* z-index: 1050; */
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
+    opacity: 0;
+    -webkit-transition: opacity 0.15s linear, z-index 0.15;
+    -o-transition: opacity 0.15s linear, z-index 0.15;
+    transition: opacity 0.15s linear, z-index 0.15;
+    z-index: -1;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  
+  .model-open {
+    z-index: 99999;
+    opacity: 1;
+    overflow: hidden;
+  }
+  .custom-model-inner {
+    -webkit-transform: translate(0, -25%);
+    -ms-transform: translate(0, -25%);
+    transform: translate(0, -25%);
+    -webkit-transition: -webkit-transform 0.3s ease-out;
+    -o-transition: -o-transform 0.3s ease-out;
+    transition: -webkit-transform 0.3s ease-out;
+    -o-transition: transform 0.3s ease-out;
+    transition: transform 0.3s ease-out;
+    transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
+    display: inline-block;
+    vertical-align: middle;
+    width: 400px;
+    margin: 30px auto;
+    max-width: 97%;
+  }
+  .custom-model-wrap {
+    display: block;
+    width: 100%;
+    position: relative;
+    background-color: #000;
+    border: 1px solid #999;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+   border-top-right-radius: 6px;
+    background-clip: padding-box;
+    outline: 0;
+    text-align: left;
+    padding: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
+  }
+  .model-open .custom-model-inner {
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    transform: translate(0, 0);
+    position: relative;
+    z-index: 999;
+    top: 40%;
+  }
+  .model-open .bg-overlay {
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 0;
+  }
+  .bg-overlay {
+    display: none;
+    background: rgba(0, 0, 0, 0);
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    -webkit-transition: background 0.15s linear;
+    -o-transition: background 0.15s linear;
+    transition: background 0.15s linear;
+  }
+  .close-btn {
+    position: absolute;
+    right: 10px;
+    top: -3px;
+    cursor: pointer;
+    z-index: 99;
+    font-size: 40px;
+    color: #fff;
+  }
+  .pop-up-content-wrap {
+    color: #fff;
+  }
+  .info_bottom {
+    background-color: #fff;
+    padding-bottom: 12px;
+  }
+  .motion_vibe {
+    text-align: end;
+    padding: 6px;
+    border-bottom: solid 1px #E6E6E6;
+  }
+  .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding-top: 20px;
+  }
+
+  .download_button {
+    border: none;
+    outline: none;
+    background-color: #29ABE2;
+    color: #fff;
+    padding: 11px 22px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 6px;
+  }
+  .cancel_button {
+    border: none;
+    outline: none;
+    background-color: #666666;
+    color: #fff;
+    padding: 11px 22px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 6px;
+  }
+
+/* popup ends */
+
+
+  /* Responsive */
+  @media screen and (max-width: 480px){
+    /* body {
+      position: relative;
+      z-index: -5;
+    } */
+    .calender_widget{
+        margin-left: 0;
+        padding: 0px;
+        width: 100%;
+        /* z-index: -5;
+        position: relative; */
+      }
+      /* .widget_header {
+        z-index: -5;
+      } */
+.info_banner {
+  z-index: -6;
+}
+/* tr,td{
+  position: relative;
+  z-index: -6;
+}
+#calender {
+  position: relative;
+  z-index: -6;
+} */
+.widget_filter {
+    align-items: normal;
+    flex-direction: column;
+    gap: 0;
+    /* z-index: -5; */
+}
+/* .left_arrow, .right_arrow{
+  z-index: -1;
+}
+.header_title {
+  position: relative;
+  z-index: -1;
+} */
+
+.model-open {
+  margin-top: 100px;
+}
+
+
+.line {
+    margin-right: 0;
+    margin-left: 0;
+}
+.print_btn {
+    padding-left: 0;
+    position: absolute;
+    top: 70px;
+    z-index: -1;
+}
+.load-para {
+    top: 54%;
+    left: 25%;
+  }
+  .view_all {
+    display: none;
+  }
+.down_btn {
+    display: none;
+}
+.event {
+    border-bottom: none;
+    background-color: transparent;
+    padding: 5px 5px 5px 5px;
+    width: auto;
+    margin-bottom: 0px;
+    height: 100%;
+
+}
+.event:hover {
+  background-color: transparent;
+}
+.event img {
+    width: 100px;
+    height: 50px;
+  }
+.time {
+    font-weight: normal;
+    color:#000;
+     font-size:15px;
+      padding-bottom: 10px;
+  }
+
+.instructor_name {
+    font-size: 13px;
+    padding-top: 25px;
+}
+.main_class {
+    border: 1px solid #E7E7E8;
+    padding: 12px;
+}
+.top_div{
+    display: flex;
+    gap: 125px;
+}
+.images {
+    display: flex;
+    gap: 5px;
+}
+.info_down {
+    padding-left: 50px;
+}
+.box_one {
+    position: relative;
+
+}
+.duration_time{
+    position: absolute;
+        top: 30px;
+        left: 3px;
+        font-size: 14px;
+        color: white;
+}
+.desc_para {
+    display: none;
+    margin-top: 20px;
+}
+.description_title {
+    text-decoration: underline;
+}
+.description {
+    padding-top: 10px;
+    font-size: 13px;
+}
+
+.info_up {
+  position: relative;
+  top: 12px;
+  left: 145px;
+}
+
+  }
+ 
+
+  
