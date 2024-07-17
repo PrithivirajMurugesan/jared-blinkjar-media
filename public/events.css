@@ -23,7 +23,9 @@
     gap: 12px;
 }
 
-
+d{
+    background: pink;
+}
 
 th{
     background-color: #666666;
